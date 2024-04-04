@@ -23,5 +23,5 @@ migrate:
 lint:
 	@echo "Linting with Black..."
 	${PYTHON} -m black .
-	@echo "Linting with pep8..."
-	${PYTHON} -m pep8 .
+	@echo "Linting with flake8..."
+	${PYTHON} -m flake8 .
