@@ -36,6 +36,25 @@ or
 python manage.py runserver
 ```
 
+## Linters
+
+```bash
+make lint
+
+or
+
+python -m  flake8 .
+```
+
+## Format
+
+```bash
+make format
+
+or
+
+python -m  black .
+```
 
 ## Contributors
 
