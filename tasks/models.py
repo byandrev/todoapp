@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.timezone import now
 
+from todoapp import settings
+
 
 class StatusTask(models.TextChoices):
     COMPLETED = "Completed"
@@ -16,6 +18,9 @@ class Task(models.Model):
     )
     limit_date = models.DateTimeField(null=True)
     created_at = models.DateTimeField(default=now, editable=False)
+    user_id = models.ForeignKey(
+        settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return self.name
