@@ -1,11 +1,12 @@
-
 from django.db import models
 from django.db.models.functions import Now
+
 
 class Status(models.TextChoices):
     COMPLETED = "Completed"
     PROGRESS = "In Progress"
     PENDING = "Pending"
+
 
 class Task(models.Model):
     name = models.CharField(max_length=200)

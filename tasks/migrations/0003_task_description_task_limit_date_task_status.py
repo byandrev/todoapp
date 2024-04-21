@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0002_remove_task_description_task_created_at'),
+        ("tasks", "0002_remove_task_description_task_created_at"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='task',
-            name='description',
+            model_name="task",
+            name="description",
             field=models.TextField(blank=True),
         ),
         migrations.AddField(
-            model_name='task',
-            name='limit_date',
+            model_name="task",
+            name="limit_date",
             field=models.DateTimeField(null=True),
         ),
         migrations.AddField(
-            model_name='task',
-            name='status',
-            field=models.CharField(default='Pending', max_length=100),
+            model_name="task",
+            name="status",
+            field=models.CharField(default="Pending", max_length=100),
         ),
     ]

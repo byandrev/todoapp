@@ -7,17 +7,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0001_initial'),
+        ("tasks", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='task',
-            name='description',
+            model_name="task",
+            name="description",
         ),
         migrations.AddField(
-            model_name='task',
-            name='created_at',
-            field=models.DateTimeField(db_default=django.db.models.functions.datetime.Now()),
+            model_name="task",
+            name="created_at",
+            field=models.DateTimeField(
+                db_default=django.db.models.functions.datetime.Now()
+            ),
         ),
     ]
