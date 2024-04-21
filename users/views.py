@@ -4,6 +4,6 @@ from .models import User
 
 
 def index(request):
-    users = User.objects.all()
-    data = serialize("python", users)
+    users = User.objects.filter(is_superuser=False)
+    data = serialize("python", users, fields = ['username', 'email', 'date_joined', 'photo'])
     return JsonResponse(data, safe=False)
