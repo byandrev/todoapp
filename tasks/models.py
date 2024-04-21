@@ -1,8 +1,8 @@
 from django.db import models
-from django.db.models.functions import Now
+from django.utils.timezone import now
 
 
-class Status(models.TextChoices):
+class StatusTask(models.TextChoices):
     COMPLETED = "Completed"
     PROGRESS = "In Progress"
     PENDING = "Pending"
@@ -11,6 +11,11 @@ class Status(models.TextChoices):
 class Task(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    status = models.CharField(default=Status.PENDING, max_length=100)
+    status = models.CharField(
+        default=StatusTask.PENDING, choices=StatusTask, max_length=100
+    )
     limit_date = models.DateTimeField(null=True)
-    created_at = models.DateTimeField(db_default=Now())
+    created_at = models.DateTimeField(default=now, editable=False)
+
+    def __str__(self):
+        return self.name
