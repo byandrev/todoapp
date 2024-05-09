@@ -21,10 +21,10 @@ class Task(models.Model):
     user_id = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.RESTRICT,
-        limit_choices_to={"is_staff": False},
-        related_name='tasks',
+        limit_choices_to={"is_superuser": False},
+        related_name="tasks",
         blank=True,
-        null=True
+        null=True,
     )
 
     def __str__(self):
