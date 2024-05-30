@@ -26,6 +26,7 @@ class Task(models.Model):
         blank=True,
         null=True,
     )
+    priority = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name
