@@ -24,12 +24,12 @@ from users.views import UserCreationView
 
 router = DefaultRouter()
 router.register(r"tasks", TaskViewSet)
-#router.register(r"users", User)
+# router.register(r"users", User)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
-    path('api/tokens/', views.obtain_auth_token), 
-    path('api/users', UserCreationView.as_view(), name='users'),
+    path("api/tokens/", views.obtain_auth_token),
+    path("api/users", UserCreationView.as_view(), name="users"),
     path("api/", include(router.urls)),
 ]

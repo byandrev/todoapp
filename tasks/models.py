@@ -24,7 +24,7 @@ class Task(models.Model):
         blank=True,
         on_delete=models.RESTRICT,
         limit_choices_to={"is_superuser": False},
-        related_name="tasks", 
+        related_name="tasks",
         null=True,
     )
 
