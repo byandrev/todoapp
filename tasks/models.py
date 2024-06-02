@@ -21,12 +21,13 @@ class Task(models.Model):
     created_at = models.DateTimeField(default=now, editable=False)
     user_id = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        blank=True,
         on_delete=models.RESTRICT,
         limit_choices_to={"is_superuser": False},
         related_name="tasks",
+        blank=True,
         null=True,
     )
+    priority = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name
