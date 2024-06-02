@@ -13,7 +13,6 @@ class StatusTask(models.TextChoices):
 class Task(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    priority = models.PositiveSmallIntegerField(default=0)
     status = models.CharField(
         default=StatusTask.PENDING, choices=StatusTask, max_length=100
     )
