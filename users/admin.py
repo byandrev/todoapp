@@ -9,6 +9,6 @@ class UserAdmin(admin.ModelAdmin):
         "last_name",
         "username",
         "email",
-        "is_superuser",
+        "is_staff",
     ]
     search_fields = ["username"]
