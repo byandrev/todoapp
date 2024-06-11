@@ -1,11 +1,11 @@
-from django.http import JsonResponse
-from django.core.serializers import serialize
-from .models import User
+from rest_framework import generics
+from rest_framework.permissions import AllowAny
+from django.contrib.auth import get_user_model
+
+from .serializers import UserCreationSerializer
 
 
-def index(request):
-    users = User.objects.filter(is_superuser=False)
-    data = serialize(
-        "python", users, fields=["username", "email", "date_joined", "photo"]
-    )
-    return JsonResponse(data, safe=False)
+class UserCreationView(generics.CreateAPIView):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserCreationSerializer
+    permission_classes = [AllowAny]
