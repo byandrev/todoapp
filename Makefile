@@ -12,13 +12,13 @@ help:
 	@echo "  lint        : Lint the code using Black and pep8"
 
 run:
-	$(MANAGE) runserver
+	$(MANAGE) runserver --settings=todoapp.settings.ci
 
 test:
-	$(MANAGE) test
+	$(MANAGE) test --settings=todoapp.settings.ci
 
 migrate:
-	$(MANAGE) migrate
+	$(MANAGE) migrate --settings=todoapp.settings.ci
 
 lint:
 	@echo "Linting with flake8..."
