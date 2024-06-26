@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     "django_filters",
     "tasks.apps.TasksConfig",
     "users.apps.UsersConfig",
+    "corsheaders"
 ]
 
 MIDDLEWARE = [
@@ -26,6 +27,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "todoapp.urls"
@@ -92,3 +94,4 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = "users.User"
+APPEND_SLASH=False

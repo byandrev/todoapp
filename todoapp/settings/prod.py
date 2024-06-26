@@ -14,6 +14,8 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG")
 
 ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS").split()
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = config("DJANGO_CORS").split()
 
 
 # Database
