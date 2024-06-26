@@ -8,7 +8,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView
 )
-from users.views import UserCreationView
+from users.views import UserCreationView, UserDetailView, UserUpdateView
 
 router = routers.DefaultRouter()
 router.register(r"tasks", TaskViewSet)
@@ -21,4 +21,6 @@ urlpatterns = [
     path('api/token/verify', TokenVerifyView.as_view(), name='token_verify'),
     path("api/", include(router.urls)),
     path("api/users/", UserCreationView.as_view(), name="user_create"),
+    path("api/users/<int:pk>/", UserDetailView.as_view(), name="user_detail"),
+    path("api/users/<int:pk>/update/", UserUpdateView.as_view(), name="user_update"),
 ]
