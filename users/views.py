@@ -34,4 +34,5 @@ class UserDetailView(APIView):
 class UserUpdateView(generics.UpdateAPIView):
     queryset = get_user_model().objects.all()
     serializer_class = UserUpdateSerializer   
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
